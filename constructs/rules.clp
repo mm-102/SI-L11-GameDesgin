@@ -33,6 +33,12 @@
     (assert (decision "Game Critic"))
 )
 
+(defrule decision-game-reviewer
+    (answer no_bitter_about_it)
+    =>
+    (assert (decision "Game Reviewer"))
+)
+
 (defrule check-excited-other-people-ideas
     (answer exceptional_talent)
     =>
@@ -497,13 +503,19 @@
 )
 
 (defrule check-enjoy-crafting-crates
-    (answer no_french)
+    (answer no_asian)
     =>
     (assert (question
-    (display "Asian?") 
+    (display "Do you enjoy crafting crates?") 
     (answer1 "Yes" enjoy_crafting_crates) 
     (answer2 "No" no_enjoy_crafting_crates)
     ))
+)
+
+(defrule decision-concept-artist
+    (answer asian)
+    =>
+    (assert (decision "Concept Artist"))
 )
 
 (defrule decision-2d-artist
