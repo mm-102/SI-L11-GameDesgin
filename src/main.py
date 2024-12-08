@@ -1,5 +1,4 @@
 import clips
-from clips.facts import ImpliedFact
 import os
 import tkinter as tk
 
@@ -33,7 +32,7 @@ decision_made = False
 while not decision_made:
     env.run()
     for fact in env.facts():
-        print(fact)
+        # print(fact)
         template_name = fact.template.name
 
         if template_name == "decision":

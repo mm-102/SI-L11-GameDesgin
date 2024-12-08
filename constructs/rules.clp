@@ -523,3 +523,112 @@
     =>
     (assert (decision "Comic Artist"))
 )
+
+(defrule check-like-productive-work
+    (answer love_money)
+    =>
+    (assert (question
+    (display "Do you like doing productive work?") 
+    (answer1 "Yes" like_productive_work) 
+    (answer2 "No" no_like_productive_work)
+    ))
+)
+
+(defrule check-afraid-of-responsibility
+    (answer no_like_productive_work)
+    =>
+    (assert (question
+    (display "Are you afraid of responsibility?") 
+    (answer1 "Yes" afraid_of_responsibility) 
+    (answer2 "No" no_afraid_of_responsibility)
+    ))
+)
+
+(defrule check-have-grand-vision
+    (answer no_afraid_of_responsibility)
+    =>
+    (assert (question
+    (display "Do you have a \"grand vision\"?")
+    (answer1 "Yes" have_grand_vision) 
+    (answer2 "No" no_have_grand_vision)
+    ))
+)
+
+(defrule check-have-any-money
+    (answer no_have_grand_vision)
+    =>
+    (assert (question
+    (display "Do you have any money?")
+    (answer1 "Yes" have_money) 
+    (answer2 "No" no_have_money)
+    ))
+)
+
+(defrule decision-producer
+    (answer no_have_money)
+    =>
+    (assert (decision "Producer"))
+)
+
+(defrule check-have-conscience
+    (answer have_money)
+    =>
+    (assert (question
+    (display "Do you have a conscience?")
+    (answer1 "Yes" have_conscience) 
+    (answer2 "No" no_have_conscience)
+    ))
+)
+
+(defrule decision-social-games-studio-head
+    (answer no_have_conscience)
+    =>
+    (assert (decision "Social Games Studio Head"))
+)
+
+(defrule decision-studio-head
+    (answer have_conscience)
+    =>
+    (assert (decision "Studio Head"))
+)
+
+(defrule decision-creative-director
+    (answer have_grand_vision)
+    =>
+    (assert (decision "Creative Director"))
+)
+
+(defrule decision-consultant
+    (answer afraid_of_responsibility)
+    =>
+    (assert (decision "Consultant"))
+)
+
+(defrule check-can-code
+    (answer like_productive_work)
+    =>
+    (assert (question
+    (display "Can you code?")
+    (answer1 "Yes" can_code) 
+    (answer2 "No" no_can_code)
+    (answer3 "Well... it's been a while" been_a_while_code)
+    ))
+)
+
+(defrule decision-technical-lead
+    (answer been_a_while_code)
+    =>
+    (assert (decision "Technical Lead"))
+)
+
+(defrule decision-out-of-luck
+    (answer no_can_code)
+    =>
+    (assert (decision "You're shit out of luck")) ; XD
+)
+
+(defrule decision-programmer
+    (answer can_code)
+    =>
+    (assert (decision "Programmer"))
+)
