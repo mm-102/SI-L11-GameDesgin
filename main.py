@@ -2,7 +2,7 @@ import clips
 import os
 import tkinter as tk
 
-CONSTRUCT = os.path.dirname(__file__)+"/../constructs/"
+CONSTRUCT = os.path.dirname(__file__)+"/constructs/"
 
 widget = tk.Tk()
 widget.geometry("400x600")
@@ -29,7 +29,7 @@ def next_action() -> None:
         template_name = fact.template.name
 
         if template_name == "decision":
-            question_var.set(tuple(fact))
+            question_var.set(tuple(fact)[0])
             break
 
         if template_name == "question":

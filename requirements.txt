@@ -1,2 +1,4 @@
 clipspy==1.0.4
-tk
+    pycparser==2.22
+    cffi==1.17.1
+tk==0.1.0
